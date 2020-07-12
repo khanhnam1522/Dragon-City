@@ -10,6 +10,7 @@ import { fetchAuthenticated } from './store/actions/account';
 
 const store = configureStore();
 
+//Redirect to homepage after refreshing the page
 const AuthRoute = props => {
   if (!store.getState().account.loggedIn) {
     return <Redirect to={{ pathname: '/' }} />
@@ -27,7 +28,7 @@ function App() {
       <Router history={history}>
         <Switch>
           <Route exact path="/" component={Root}/>
-          <AuthRoute path="/account-dragons" component={AccountDragons}/>
+          <Route path="/account-dragons" component={AccountDragons}/>
         </Switch>
       </Router>
     </Provider>
