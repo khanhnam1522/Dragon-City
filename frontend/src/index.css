@@ -3,6 +3,41 @@ body {
 
 }
 
+.page{
+  width: 100vw;
+  height: 120vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: -1;
+  padding: 1rem;
+  background-position: center center;
+  background-image: url('./images/background.jpg');
+  background-color: #bdc3c7;
+  background-size: cover;
+  color: #fff;
+  text-shadow: 0 0 8px #66757f;
+  background-color: #66757f;
+}
+
+.info{
+  background: #bdc3c7; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #bdc3c7, #2c3e50); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #bdc3c7, #2c3e50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  padding: 50px;
+  text-align: center;
+  margin: 20px;
+  margin-top: 50px;
+}
+
+.info img{
+  display: block;
+  margin: 0 auto;
+}
+
 .authForm{
   width: 100vw;
   height: 100vh;
@@ -28,6 +63,12 @@ body {
   font-size: 25px;
 }
 
+.error-message{
+  font-size: 22px;
+  justify-content: center;
+  display: flex;
+}
+
 .butt {
   margin-left: 20px;
   margin-right: 20px;
@@ -47,6 +88,10 @@ body {
   background: #b91411;
 }
 
+.butt:focus{
+  background: #b91411;
+}
+
 .form{
   position: relative;
   margin: 2% auto;
@@ -62,6 +107,26 @@ body {
   top: 30px;
 }
 
+.dragon-market{
+  margin-bottom: 30px;
+}
+
+.AccountInfo{
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  background: #bdc3c7; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #bdc3c7, #2c3e50); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #bdc3c7, #2c3e50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  padding: 5px;
+}
+
+.generate{
+  background: #bdc3c7; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #bdc3c7, #2c3e50); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #bdc3c7, #2c3e50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  padding: 20px;
+  align-items: center;
+  text-align: center;
+}
 .row-input{
   width: 100px;
   margin-right: 15px;

@@ -1,4 +1,5 @@
 const pool = require('../../databasePool');
+
 const DragonTable = require('./table');
 const Dragon = require('./index');
 
@@ -48,6 +49,6 @@ const getPublicDragons = () => {
         }
       )
     });
-  }
+}
 
 module.exports = {getDragonWithTraits, getPublicDragons};

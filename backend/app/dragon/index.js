@@ -1,4 +1,5 @@
 const TRAITS = require('../../data/traits');
+const random_name = require('node-random-name');
 
 const DEFAULT_PROPERTIES = {
     dragonId: undefined,
@@ -28,7 +29,7 @@ class Dragon {
     constructor({dragonId,birthdate, nickname, traits, generationId, isPublic, saleValue, breedValue} = {}){
         this.dragonId = dragonId || DEFAULT_PROPERTIES.dragonId;
         this.birthdate = birthdate || DEFAULT_PROPERTIES.birthdate;
-        this.nickname = nickname || DEFAULT_PROPERTIES.nickname;
+        this.nickname = nickname || random_name();
         this.traits = traits || DEFAULT_PROPERTIES.randomTraits;
         this.generationId = generationId || DEFAULT_PROPERTIES.generationId;
         this.isPublic = isPublic || DEFAULT_PROPERTIES.isPublic;

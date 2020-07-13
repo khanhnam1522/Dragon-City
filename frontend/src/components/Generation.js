@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {fetchGeneration} from '../store/actions/generation';
 import fetchStates from '../store/reducers/fetchStates';
-
+import moment from 'moment';
 const MINIMUM_DELAY = 3000;
 
 class Generation extends Component {
@@ -37,11 +37,10 @@ class Generation extends Component {
         if(generation.status === fetchStates.error){
             return <div>{generation.message}</div>
         }
-        // const date = (new Date(generation.expiration).getTime() -  new Date().getTime()).toString();
         return(
             <div>
-                <h3>Generation {generation.generationId}. Expires on:</h3>
-                <h4>{new Date(generation.expiration).toString()}</h4>
+                <h3>Generation {generation.generationId}. </h3>
+                <h4>Expires on: {moment(new Date(generation.expiration)).format("hh:mm:ss a")}</h4>
             </div>
         )
     }   

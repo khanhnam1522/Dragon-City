@@ -38,16 +38,20 @@ class DragonAvatar extends Component {
   }
 
   render() {
-    const { generationId, dragonId, traits } = this.props.dragon;
+    const { generationId, dragonId, traits, nickname } = this.props.dragon;
     
     if(!dragonId) return <div></div>
 
     return (
         <div>
-            <span>G{generationId}.</span>
-            <span>I{dragonId}. </span>
-            { traits.map(trait => trait.traitValue).join(', ') }
+            {this.props.isFetch && (<h2>Congratulations, you have collected a new dragon</h2>)}
+            <h3>Generation: {generationId}.</h3>
+            <h4>Name: {nickname}</h4>
+            <h4>Traits: 
+                { traits.map(trait => trait.traitValue).join(', ') }
+            </h4>
             { this.DragonImage }
+            
         </div>
     )
   }

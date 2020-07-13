@@ -14,13 +14,13 @@ class Dragon extends Component {
         if(this.props.dragon.status === fetchStates.error){
             return <span>{this.props.dragon.message}</span>
         }
-        return <DragonAvatar dragon= {dragon}/>;
+        return <DragonAvatar dragon= {dragon} isFetch={true}/>;
     }
 
     render() {
         return (
             <div>
-                <Button onClick={this.props.fetchDragon}>New Dragon</Button>
+                <Button className="butt" onClick={this.props.fetchDragon}>Collect New Dragon</Button>
                 <br/>
                 {this.DragonView}
             </div>
