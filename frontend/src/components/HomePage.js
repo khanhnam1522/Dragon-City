@@ -6,17 +6,23 @@ import Dragon from './Dragon';
 import AccountInfo from './AccountInfo'
 import {logout} from '../store/actions/account';
 import {Link} from 'react-router-dom';
+import Logo from '../images/Logo.png';
 
 class HomePage extends Component{
     render(){
         return (
-            <div className="App">
-                <Button className='logout-button' onClick={this.props.logout}>Log Out</Button>
-                <h2>DRAGON STACK</h2>
+            <div className="page">
+                <div>
+                    <AccountInfo/>
+                    <Button className='logout-button' onClick={this.props.logout}>Log Out</Button>
+                    <img src={Logo} alt="logo"></img>
+                    <hr/>
+                    <h2>Welcome to the world of the dragons</h2>
+                </div>
+
                 <Generation/>
                 <Dragon/>
                 <hr/>
-                <AccountInfo/>
                 <hr/>
                 <Link to='/account-dragons'>Account Dragons</Link>
                 <br/>

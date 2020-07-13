@@ -3,6 +3,7 @@ import {Button, FormGroup, FormControl} from 'react-bootstrap';
 import {signup, login} from '../store/actions/account';
 import {connect} from 'react-redux';
 import fetchStates from '../store/reducers/fetchStates';
+import Logo from '../images/Logo.png';
 
 class AuthForm extends Component{
     state = {username: '', password: '', buttonClicked: false};
@@ -36,34 +37,40 @@ class AuthForm extends Component{
 
     render() {
         return (
-            <div>
-                <h2>Dragon Stack</h2>
-                <FormGroup>
-                    <FormControl 
-                        type='text' 
-                        value={this.state.username} 
-                        placeholder='username'
-                        onChange={this.updateUsername}
-                    />
-                </FormGroup>
+            <div className="authForm">
+                <img src={Logo} alt="logo"></img>
 
-                <FormGroup>
-                    <FormControl 
-                        type='password' 
-                        value={this.state.password} 
-                        placeholder='password'
-                        onChange= {this.updatePassword}
-                    />
-                </FormGroup>
+                <div className="form">
+                    <FormGroup>
+                        <FormControl 
+                            type='text' 
+                            value={this.state.username} 
+                            placeholder='username'
+                            onChange={this.updateUsername}
+                            className="input-field"
+                        />
+                    </FormGroup>
 
-                <div>
-                    <Button onClick={this.login}>Log In</Button>
-                    <span> or </span>
-                    <Button onClick={this.signup}>Sign Up</Button>
+                    <FormGroup>
+                        <FormControl 
+                            type='password' 
+                            value={this.state.password} 
+                            placeholder='password'
+                            onChange= {this.updatePassword}
+                            className="input-field"
+                        />
+                    </FormGroup>
+
+                    <div className="buttons">
+                        <Button onClick={this.login} className="butt">Log In</Button>
+                        <span className="or"> or </span>
+                        <Button onClick={this.signup} className="butt">Sign Up</Button>
+                    </div>
+
+                    <br/>
+                    {this.Error}
                 </div>
-
-                <br/>
-                {this.Error}
+                
             </div>
         );
     }

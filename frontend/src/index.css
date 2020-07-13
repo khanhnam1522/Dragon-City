@@ -1,7 +1,44 @@
+
 body {
-  text-align: center;
-  margin: 10%;
-  font-size: 20px;
+
+}
+
+.authForm{
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: -1;
+  padding: 1rem;
+  background-position: center center;
+  background-image: url('./images/background.jpg');
+  background-size: cover;
+  color: #fff;
+  text-shadow: 0 0 8px #66757f;
+}
+
+.buttons{
+  display: flex;
+  justify-content: center;
+  font-size: 25px;
+}
+
+.butt {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.form{
+  position: relative;
+  margin: 2% auto;
+  background:transparent;
+  border: 1px solid #999;
+  width: 50%;
+  padding:25px;
 }
 
 .logout-button{
@@ -13,6 +50,10 @@ body {
 .row-input{
   width: 100px;
   margin-right: 15px;
+}
+
+.authForm{
+  margin: 0 auto;
 }
 
 .dragon-avatar-image-wrapper {
