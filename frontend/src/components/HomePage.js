@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {Button} from 'react-bootstrap';
 import Generation from "./Generation";
 import Dragon from './Dragon';
+import AccountInfo from './AccountInfo'
 import {logout} from '../store/actions/account';
 import {Link} from 'react-router-dom';
 
@@ -15,7 +16,11 @@ class HomePage extends Component{
                 <Generation/>
                 <Dragon/>
                 <hr/>
+                <AccountInfo/>
+                <hr/>
                 <Link to='/account-dragons'>Account Dragons</Link>
+                <br/>
+                <Link to='/public-dragons'>Public Dragons</Link>
             </div>
         )
     }

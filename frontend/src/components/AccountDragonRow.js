@@ -6,11 +6,26 @@ import { BACKEND } from '../config';
 class AccountDragonRow extends Component{
     state = {
         nickname: this.props.dragon.nickname,
+        isPublic: this.props.dragon.isPublic,
+        saleValue: this.props.dragon.saleValue,
+        breedValue: this.props.dragon.breedValue,
         edit: false
     };
 
     updateNickname = event => {
         this.setState({nickname:event.target.value});
+    }
+
+    updateBreedValue = event => {
+        this.setState({breedValue: event.target.value});
+    }
+
+    updateSaleValue = event => {
+        this.setState({saleValue: event.target.value});
+    }
+
+    updateIsPublic = event => {
+        this.setState({isPublic: event.target.checked});
     }
 
     toggleEdit = () => {
@@ -19,12 +34,15 @@ class AccountDragonRow extends Component{
 
     save = () => {
         fetch(`${BACKEND.ADDRESS}/dragon/update`, {
-          method: 'PUT',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            dragonId: this.props.dragon.dragonId,
-            nickname: this.state.nickname,
-          })
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                dragonId: this.props.dragon.dragonId,
+                nickname: this.state.nickname,
+                isPublic: this.state.isPublic,
+                saleValue: this.state.saleValue,
+                breedValue: this.state.breedValue
+            })
         }).then(response => response.json())
           .then(json => {
             if (json.type === 'error') {
@@ -55,9 +73,44 @@ class AccountDragonRow extends Component{
                 ></input>
                 <br/>
                 <DragonAvatar dragon={this.props.dragon}/>
-                {
-                    this.state.edit ? this.SaveButton : this.EditButton
-                }
+                <div>
+                    <span>
+                        Sale Value: {' '} 
+                        <input 
+                            type='number' 
+                            disabled={!this.state.edit} 
+                            value={this.state.saleValue}
+                            onChange={this.updateSaleValue}
+                            className='row-input'
+                        />
+                    </span> {' '}
+                    
+                    <span>
+                        Breed Value: {' '}
+                        <input
+                            type='number' 
+                            disabled={!this.state.edit} 
+                            value={this.state.breedValue}
+                            onChange={this.updateBreedValue}
+                            className='row-input'
+                        />
+                    </span>
+
+                    <span>
+                        Public: {' '}
+                        <input
+                            type='checkbox'
+                            disabled={!this.state.edit}
+                            checked={this.state.isPublic}
+                            onChange={this.updateIsPublic}
+                        />
+                    </span> {' '}
+                    {
+                        this.state.edit ? this.SaveButton : this.EditButton
+                    }
+
+                </div>
+
             </div>
         )
     }

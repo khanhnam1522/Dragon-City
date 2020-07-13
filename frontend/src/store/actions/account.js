@@ -1,21 +1,29 @@
 import {ACCOUNT} from '../actionTypes';
 import {BACKEND} from '../../config';
 
-export const fetchFromAccount = ({endpoint, options, SUCCESS_TYPE, FETCH_TYPE, ERROR_TYPE}) => dispatch => {
-    dispatch({type: FETCH_TYPE});
+export const fetchFromAccount = ({
+    endpoint,
+    options,
+    FETCH_TYPE,
+    ERROR_TYPE,
+    SUCCESS_TYPE
+  }) => dispatch => {
+    dispatch({ type: FETCH_TYPE });
+  
     return fetch(`${BACKEND.ADDRESS}/account/${endpoint}`, options)
-    .then(response => response.json())
-    .then(json => {
-        if(json.type ==='error'){
-            dispatch({type:ERROR_TYPE, message: json.message});
+      .then(response => response.json())
+      .then(json => {
+        if (json.type === 'error') {
+          dispatch({ type: ERROR_TYPE, message: json.message });
         } else {
-            dispatch({type:SUCCESS_TYPE, ...json});
+          dispatch({ type: SUCCESS_TYPE, ...json });
         }
-    })   
-    .catch(error => {
-        dispatch({type: ERROR_TYPE, message: error.message})
-    });    
-}
+      })
+      .catch(error => dispatch({
+        type: ERROR_TYPE, message: error.message
+      }));
+  }
+  
 
 export const signup = ({username, password}) => fetchFromAccount({
     endpoint: 'signup',
