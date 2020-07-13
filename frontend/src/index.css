@@ -16,7 +16,7 @@ body {
   z-index: -1;
   padding: 1rem;
   background-position: center center;
-  background-image: url('./images/background.jpg');
+  background-image: url('./images/527865.jpg');
   background-size: cover;
   color: #fff;
   text-shadow: 0 0 8px #66757f;
@@ -31,7 +31,22 @@ body {
 .butt {
   margin-left: 20px;
   margin-right: 20px;
+  color: #fff !important;
+  text-decoration: none;
+  background: #8a0603;
+  border-radius: 50px;
+  display: inline-block;
+  border: none;
+  transition: all 0.4s ease 0s;
 }
+.butt:hover {
+  text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  transition: all 0.4s ease 0s;
+  background: #b91411;
+}
+
 .form{
   position: relative;
   margin: 2% auto;
