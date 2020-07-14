@@ -9,6 +9,7 @@
 2.How to run:
   - Install all dependencies by ```npm-install``` in both backend folder and frontend folder
   - Run both backend server and frontend server at the same time by ```node bin/server.js``` and ```npm start``` 
+  
 3.Demo:
   - User Sign Up:
   - ![](./imgs/login.gif)
