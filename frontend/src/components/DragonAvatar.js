@@ -46,10 +46,10 @@ class DragonAvatar extends Component {
         <div>
             {this.props.isFetch && (<h2>Congratulations, you have collected a new dragon</h2>)}
             <h3>Generation: {generationId}.</h3>
-            <h4>Name: {nickname}</h4>
-            <h4>Traits: 
+            {this.props.isFetch && (<h3>Name: {nickname}</h3>)}
+            <h3>Traits: 
                 { traits.map(trait => trait.traitValue).join(', ') }
-            </h4>
+            </h3>
             { this.DragonImage }
             
         </div>

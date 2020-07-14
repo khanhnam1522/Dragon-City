@@ -1,5 +1,6 @@
 const Dragon = require('./index');
 const base64 = require('base-64');
+const random_name = require('node-random-name');
 
 class Breeder {
     static breedDragon({ matron, patron }) {
@@ -21,7 +22,7 @@ class Breeder {
             });
         });
     
-        return new Dragon({ nickname: 'Unnamed baby', traits: babyTraits });
+        return new Dragon({ nickname: random_name(), traits: babyTraits });
     }
 
     static pickTrait({ matronTrait, patronTrait }) {

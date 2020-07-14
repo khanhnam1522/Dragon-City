@@ -40,18 +40,18 @@ class PublicDragonRow extends Component {
                 <div>{this.props.dragon.nickname}</div>
                 <DragonAvatar dragon={this.props.dragon} />
                 <div>
-                <span>Sale Value: {this.props.dragon.saleValue}</span> {'| '}
-                <span>Breed Value: {this.props.dragon.breedValue}</span>
+                    <h3>Sale Value: {this.props.dragon.saleValue} | Breed Value: {this.props.dragon.breedValue}</h3>
                 </div>
-                <br />
-                <Button onClick={this.buy}>Buy</Button>{' '}
-                <Button onClick={this.toggleDisplayMatingOptions}>Breed</Button>
-                <br />
-                {
-                    this.state.displayMatingOptions ?
-                        <MatingOptions patronDragonId={this.props.dragon.dragonId} /> :
-                        <div></div>
-                }
+                <div className="market-value">
+                    <Button onClick={this.buy} className='butt'>Buy</Button>{' '}
+                    <Button onClick={this.toggleDisplayMatingOptions} className='butt'>Breed</Button>
+                    {
+                        this.state.displayMatingOptions ?
+                            <MatingOptions patronDragonId={this.props.dragon.dragonId} /> :
+                            <div></div>
+                    }
+                </div>
+
             </div>
         )
     }

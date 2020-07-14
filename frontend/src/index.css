@@ -2,10 +2,66 @@
 body {
 
 }
+.dragon-collection{
+  text-align: center;
+  background: #0F2027;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+}
+
+.userinfo{
+  padding-bottom: 150px;
+  color:white;
+}
+
+.dragon-card{
+  width: 430px;
+  padding: 10px;
+  height: 450px;
+  margin: 5%;
+  border: 1px solid rgba(160,160,160,0.2);
+  background: white;
+  border-radius: 0 0 2px 2px;
+  box-shadow: 7px 10px 12px -5px rgba(0,0,0,0.56);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.dragon-card-market{
+  width: 430px;
+  padding: 10px;
+  margin: 2%;
+  border: 1px solid rgba(160,160,160,0.2);
+  background: white;
+  border-radius: 0 0 2px 2px;
+  box-shadow: 7px 10px 12px -5px rgba(0,0,0,0.56);
+  align-items: center;
+  justify-content: center;
+  text-align: center;  
+}
+
+.dragon-list{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding-bottom: 45px;
+}
+.public{
+  margin-top: 20px;
+}
+
+@media (max-width: 500px){
+  .dragon-list{
+    display: block;
+  }
+}
 
 .page{
-  width: 100vw;
-  height: 120vh;
+  width: 99vw;
+  height: 130vh;
   position: absolute;
   top: 0;
   left: 0;

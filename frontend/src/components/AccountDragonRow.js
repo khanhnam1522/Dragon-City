@@ -55,16 +55,16 @@ class AccountDragonRow extends Component{
     }
 
     get SaveButton() {
-        return <Button onClick={this.save}>Save</Button>
+        return <Button className='butt' onClick={this.save}>Save</Button>
     }
 
     get EditButton() {
-        return <Button onClick={this.toggleEdit}>Edit</Button>
+        return <Button className='butt' onClick={this.toggleEdit}>Edit</Button>
     }
 
     render(){
         return (
-            <div>
+            <div className="dragon-card">
                 <input 
                     type='text' 
                     value={this.state.nickname}
@@ -73,7 +73,7 @@ class AccountDragonRow extends Component{
                 ></input>
                 <br/>
                 <DragonAvatar dragon={this.props.dragon}/>
-                <div>
+                <div className="market-value">
                     <span>
                         Sale Value: {' '} 
                         <input 
@@ -96,18 +96,21 @@ class AccountDragonRow extends Component{
                         />
                     </span>
 
-                    <span>
-                        Public: {' '}
-                        <input
-                            type='checkbox'
-                            disabled={!this.state.edit}
-                            checked={this.state.isPublic}
-                            onChange={this.updateIsPublic}
-                        />
-                    </span> {' '}
-                    {
-                        this.state.edit ? this.SaveButton : this.EditButton
-                    }
+                    <div className="public">
+                        <span >
+                            Public: {' '}
+                            <input
+                                type='checkbox'
+                                disabled={!this.state.edit}
+                                checked={this.state.isPublic}
+                                onChange={this.updateIsPublic}
+                            />
+                        </span> {' '}
+                        {
+                            this.state.edit ? this.SaveButton : this.EditButton
+                        }
+                    </div>
+
 
                 </div>
 

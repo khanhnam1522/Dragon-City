@@ -37,8 +37,8 @@ class MatingOptions extends Component {
                     patronDragonId: this.props.patronDragonId,
                     matronDragonId: dragon.dragonId
                   })
-                }>
-                  G{generationId}.I{dragonId}. {nickname}
+                } className='butt'>
+                  {nickname}
                 </Button>
                 {' '}
               </span>
