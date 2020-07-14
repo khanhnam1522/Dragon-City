@@ -96,50 +96,50 @@ router.post('/buy', (req, res, next) => {
 
 router.post('/mate', (req, res, next) => {
     const { matronDragonId, patronDragonId } = req.body;
-
+  
     if (matronDragonId === patronDragonId) {
-        throw new Error('Cannot breed with the same dragon!');
+      throw new Error('Cannot breed with the same dragon!');
     }
-
+  
     let matronDragon, patronDragon, patronBreedValue;
     let matronAccountId, patronAccountId;
-
+  
     getDragonWithTraits({ dragonId: patronDragonId })
         .then(dragon => {
             if (!dragon.isPublic) {
                 throw new Error('Dragon must be public');
             }
-
+    
             patronDragon = dragon;
             patronBreedValue = dragon.breedValue;
-
+    
             return getDragonWithTraits({ dragonId: matronDragonId })
         })
         .then(dragon => {
             matronDragon = dragon;
-
+    
             return authenticatedAccount({ sessionString: req.cookies.sessionString });
-            })
-            .then(({ account, authenticated }) => {
+        })
+        .then(({ account, authenticated }) => {
             if (!authenticated) throw new Error('Unauthenticated');
-
+    
             if (patronBreedValue > account.balance) {
                 throw new Error('Breed value exceeds balance');
             }
-
+    
             matronAccountId = account.id;
-
+    
             return AccountDragonTable.getDragonAccount({ dragonId: patronDragonId });
         })
         .then(({ accountId }) => {
             patronAccountId = accountId;
-
+    
             if (matronAccountId === patronAccountId) {
                 throw new Error('Cannot breed your own dragons!');
             }
-
+    
             const dragon = Breeder.breedDragon({ matron: matronDragon, patron: patronDragon });
-
+    
             return DragonTable.storeDragon(dragon);
         })
         .then(({ dragonId }) => {
@@ -153,11 +153,12 @@ router.post('/mate', (req, res, next) => {
                 AccountDragonTable.storeAccountDragon({
                     dragonId, accountId: matronAccountId
                 })
-        ])
-        .then(() => res.json({ message: 'success!' }))
+            ])
+            .then(() => res.json({ message: 'success!' }))
+        })
         .catch(error => next(error));
-    });
-});
+    
+  });
   
 
 module.exports = router;

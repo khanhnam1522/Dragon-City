@@ -37,7 +37,7 @@ class PublicDragonRow extends Component {
     render() {
         return (
             <div>
-                <div>{this.props.dragon.nickname}</div>
+                <h3>{this.props.dragon.nickname}</h3>
                 <DragonAvatar dragon={this.props.dragon} />
                 <div>
                     <h3>Sale Value: {this.props.dragon.saleValue} | Breed Value: {this.props.dragon.breedValue}</h3>
