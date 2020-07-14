@@ -18,6 +18,6 @@
   - Edit a dragons stat and place it in the dragon market
     ![](./imgs/edit.gif)
   - Buy dragons at dragon market
-    ![](./imgs/buy.gif)
+  - ![](./imgs/buy.gif)
   - Make baby dragon from a dragon at dragon market
     ![](./imgs/breed.gif)
