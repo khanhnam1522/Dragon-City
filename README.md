@@ -11,6 +11,7 @@
   - Run both backend server and frontend server at the same time by ```node bin/server.js``` and ```npm start``` 
   
 3.Demo:
+  - The application is deployed on Heroku: https://dragoncity-nt.herokuapp.com/
   - User Sign Up:
     ![](./imgs/login.gif)
   - Collect dragons from generation, but users can only collect 1 dragon / generation
