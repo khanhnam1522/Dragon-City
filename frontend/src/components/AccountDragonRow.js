@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Button} from 'react-bootstrap';
-import DragonAvatar from './DragonAvatar';
 import { BACKEND } from '../config';
+import DragonImage from './DragonImage';
 
 class AccountDragonRow extends Component{
     state = {
@@ -55,66 +55,78 @@ class AccountDragonRow extends Component{
     }
 
     get SaveButton() {
-        return <Button className='butt' onClick={this.save}>Save</Button>
+        return <Button className='btn_1' onClick={this.save}>Save</Button>
     }
 
     get EditButton() {
-        return <Button className='butt' onClick={this.toggleEdit}>Edit</Button>
+        return <Button className='btn_1' onClick={this.toggleEdit}>Edit</Button>
     }
 
     render(){
+        const { generationId, traits } = this.props.dragon;
+
         return (
-            <div className="dragon-card">
-                <input 
-                    type='text' 
-                    value={this.state.nickname}
-                    onChange={this.updateNickname}
-                    disabled={!this.state.edit}
-                ></input>
-                <br/>
-                <DragonAvatar dragon={this.props.dragon}/>
-                <div className="market-value">
-                    <span>
-                        Sale Value: {' '} 
-                        <input 
-                            type='number' 
-                            disabled={!this.state.edit} 
-                            value={this.state.saleValue}
-                            onChange={this.updateSaleValue}
-                            className='row-input'
-                        />
-                    </span> {' '}
-                    
-                    <span>
-                        Breed Value: {' '}
-                        <input
-                            type='number' 
-                            disabled={!this.state.edit} 
-                            value={this.state.breedValue}
-                            onChange={this.updateBreedValue}
-                            className='row-input'
-                        />
-                    </span>
-
-                    <div className="public">
-                        <span >
-                            Public: {' '}
-                            <input
-                                type='checkbox'
-                                disabled={!this.state.edit}
-                                checked={this.state.isPublic}
-                                onChange={this.updateIsPublic}
-                            />
-                        </span> {' '}
-                        {
-                            this.state.edit ? this.SaveButton : this.EditButton
-                        }
+            <div>
+                <section className="Latest_War padding_top">
+                    <div className="container">
+                        <div className="row justify-content-center align-items-center">
+                            <div className="col-lg-8">
+                                <div className="Latest_War_bg_1">
+                                    <div className="row justify-content-center align-items-center h-100">
+                                        <div className="col-lg-8">
+                                            <div className="single_war_text text-center">
+                                                <img src="img/logo.png" style={{width:"65px", height:"65px"}} alt=""/>
+                                                <h2>Name: <input 
+                                                            type='text' 
+                                                            value={this.state.nickname}
+                                                            onChange={this.updateNickname}
+                                                            disabled={!this.state.edit}
+                                                        ></input> </h2>
+                                                
+                                                <h3>Generation: {!generationId ? "Bred" : generationId} </h3>
+                                                <h3>Traits: { traits.map(trait => trait.traitValue).join(', ') }</h3>
+                                                <h3>Price:
+                                                    <input
+                                                        type='number'
+                                                        disabled={!this.state.edit}
+                                                        value={this.state.saleValue}
+                                                        onChange={this.updateSaleValue}
+                                                        className='account-dragon-row-input'
+                                                    />
+                                                </h3>
+                                                <h3>Breed:
+                                                    <input
+                                                        type='number'
+                                                        disabled={!this.state.edit}
+                                                        value={this.state.breedValue}
+                                                        onChange={this.updateBreedValue}
+                                                        className='account-dragon-row-input'
+                                                    />
+                                                </h3>
+                                                <h3>Place on market:
+                                                    <input
+                                                        type='checkbox'
+                                                        disabled={!this.state.edit}
+                                                        checked={this.state.isPublic}
+                                                        onChange={this.updateIsPublic}
+                                                    />
+                                                </h3>
+                                                <DragonImage dragon={this.props.dragon}/>
+                                            </div>
+                                        </div>
+                      
+                                    </div>
+                                    {
+                                        this.state.edit ? this.SaveButton : this.EditButton
+                                    }
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
-
-                </div>
-
+                </section>
             </div>
+
+
         )
     }
 }

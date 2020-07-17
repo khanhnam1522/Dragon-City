@@ -9,7 +9,7 @@ class AccountInfo extends Component {
 
     render() {
         return (
-        <div className="AccountInfo">
+        <div>
             <h4>Username: {this.props.accountInfo.username}</h4>
             <h4>Balance: {this.props.accountInfo.balance}</h4>
         </div>

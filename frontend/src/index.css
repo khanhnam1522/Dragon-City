@@ -1,195 +1,35 @@
-
-body {
-
-}
-.dragon-collection{
+/* body {
   text-align: center;
-  background: #0F2027;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  
-}
+  margin: 10%;
+  font-size: 20px;
+} */
 
-.userinfo{
-  padding-bottom: 150px;
-  color:white;
+html {
+  scroll-behavior: smooth;
 }
-
-.dragon-card{
-  width: 430px;
-  padding: 10px;
-  height: 450px;
-  margin: 5%;
-  border: 1px solid rgba(160,160,160,0.2);
-  background: white;
-  border-radius: 0 0 2px 2px;
-  box-shadow: 7px 10px 12px -5px rgba(0,0,0,0.56);
-  align-items: center;
-  justify-content: center;
+.collectBtn{
   text-align: center;
 }
 
-.dragon-card-market{
-  width: 430px;
-  padding: 10px;
-  margin: 2%;
-  border: 1px solid rgba(160,160,160,0.2);
-  background: white;
-  border-radius: 0 0 2px 2px;
-  box-shadow: 7px 10px 12px -5px rgba(0,0,0,0.56);
-  align-items: center;
-  justify-content: center;
-  text-align: center;  
+.btnC{
+  margin-bottom: 70px;
 }
 
-.dragon-list{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  padding-bottom: 45px;
-}
-.public{
-  margin-top: 20px;
-}
-
-@media (max-width: 500px){
-  .dragon-list{
-    display: block;
-  }
-}
-
-.page{
-  width: 99vw;
-  height: 130vh;
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: -1;
-  padding: 1rem;
-  background-position: center center;
-  background-image: url('./images/background.jpg');
-  background-color: #bdc3c7;
-  background-size: cover;
+.upcomming_war #expireTime {
+  font-size: 48px;
   color: #fff;
-  text-shadow: 0 0 8px #66757f;
-  background-color: #66757f;
 }
 
-.info{
-  background: #bdc3c7; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #bdc3c7, #2c3e50); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #bdc3c7, #2c3e50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  padding: 50px;
-  text-align: center;
-  margin: 20px;
-  margin-top: 50px;
-}
-
-.info img{
-  display: block;
-  margin: 0 auto;
-}
-
-.authForm{
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: -1;
-  padding: 1rem;
-  background-position: center center;
-  background-image: url('./images/527865.jpg');
-  background-size: cover;
-  color: #fff;
-  text-shadow: 0 0 8px #66757f;
-}
-
-.buttons{
-  display: flex;
-  justify-content: center;
-  font-size: 25px;
-}
-
-.error-message{
-  font-size: 22px;
-  justify-content: center;
-  display: flex;
-}
-
-.butt {
-  margin-left: 20px;
-  margin-right: 20px;
-  color: #fff !important;
-  text-decoration: none;
-  background: #8a0603;
-  border-radius: 50px;
-  display: inline-block;
-  border: none;
-  transition: all 0.4s ease 0s;
-}
-.butt:hover {
-  text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
-  -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-  -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-  transition: all 0.4s ease 0s;
-  background: #b91411;
-}
-
-.butt:focus{
-  background: #b91411;
-}
-
-.form{
-  position: relative;
-  margin: 2% auto;
-  background:transparent;
-  border: 1px solid #999;
-  width: 50%;
-  padding:25px;
-}
-
-.logout-button{
+.logout-button {
   position: absolute;
   right: 30px;
   top: 30px;
 }
 
-.dragon-market{
-  margin-bottom: 80px;
-}
-
-.AccountInfo{
-  position: absolute;
-  top: 20px;
-  left: 30px;
-  background: #bdc3c7; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #bdc3c7, #2c3e50); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #bdc3c7, #2c3e50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  padding: 5px;
-}
-
-.generate{
-  background: #bdc3c7; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #bdc3c7, #2c3e50); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #bdc3c7, #2c3e50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  padding: 20px;
-  align-items: center;
-  text-align: center;
-}
-.row-input{
+.account-dragon-row-input {
   width: 100px;
-  margin-right: 15px;
-}
-
-.authForm{
-  margin: 0 auto;
+  /* height: 20px; */
+  margin-left: 15px;
 }
 
 .dragon-avatar-image-wrapper {
@@ -208,4 +48,12 @@ body {
 
 .dragon-avatar-image {
   z-index: 0;
+}
+
+.options{
+  margin: 15px;
+}
+
+.space{
+  margin:40px;
 }

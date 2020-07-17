@@ -10,7 +10,6 @@ const router = new Router();
 
 router.get('/new', (req,res, next) => {
     let accountId, dragon;
-
     authenticatedAccount({sessionString: req.cookies.sessionString})
     .then(({account}) => {
         accountId = account.id;

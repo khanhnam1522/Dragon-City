@@ -33,14 +33,34 @@ class Generation extends Component {
         // if(generation.status === fetchStates.fetching){
         //     return <div>...</div>;
         // }
+        var date = moment(new Date(generation.expiration));
+        var hours = date.hours();
+        var minutes = date.minutes();
+        var seconds = date.seconds();
 
         if(generation.status === fetchStates.error){
             return <div>{generation.message}</div>
         }
         return(
             <div>
-                <h3>Generation {generation.generationId}. </h3>
-                <h4>Expires on: {moment(new Date(generation.expiration)).format("hh:mm:ss a")}</h4>
+                <h2>Generation: {generation.generationId} </h2>
+                <h2>Expires on: </h2>
+
+                <div id="timer" className="d-flex justify-content-between" style={{marginBottom: "20px"}}>
+                    <div id="expireTime">
+                        {hours}
+                        <span>Hours</span>
+                    </div>
+                    <div id="expireTime">
+                        {minutes}
+                        <span>Minutes</span>
+                    </div>
+                    <div id="expireTime">
+                        {seconds}
+                        <span>Seconds</span>
+                    </div>
+
+                </div>
             </div>
         )
     }   

@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import DragonAvatar from './DragonAvatar';
-import {Button} from 'react-bootstrap';
 import {fetchDragon} from '../store/actions/dragon';
 import fetchStates from '../store/reducers/fetchStates';
-
+import { HashLink as Link } from 'react-router-hash-link';
+import DragonAvatar from './DragonAvatar';
 
 class Dragon extends Component {
 
@@ -19,9 +18,8 @@ class Dragon extends Component {
 
     render() {
         return (
-            <div>
-                <Button className="butt" onClick={this.props.fetchDragon}>Collect New Dragon</Button>
-                <br/>
+            <div className="collectBtn">
+                <Link to='/#sectionDragonView' className="btn_1 btnC" onClick={this.props.fetchDragon}>Collect This Dragon</Link>
                 {this.DragonView}
             </div>
         )

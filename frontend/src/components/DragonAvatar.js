@@ -1,41 +1,8 @@
 import React, { Component } from 'react';
-import { skinny, slender, sporty, stocky, patchy, plain, spotted, striped } from '../images';
-
-const propertyMap = {
-  backgroundColor: {
-    black: '#263238',
-    white: '#cfd8dc',
-    green: '#a5d6a7',
-    blue: '#0277bd'
-  },
-  build: { slender, stocky, sporty, skinny },
-  pattern: { plain, striped, spotted, patchy },
-  size: { small: 100, medium: 140, large: 180, enormous: 220 }
-};
+import {Link} from 'react-router-dom';
+import DragonImage from './DragonImage';
 
 class DragonAvatar extends Component {
-  get DragonImage() {
-    const dragonPropertyMap = {};
-
-    this.props.dragon.traits.forEach(trait => {
-      const { traitType, traitValue } = trait;
-
-      dragonPropertyMap[traitType] = propertyMap[traitType][traitValue];
-    });
-
-    const { backgroundColor, build, pattern, size } = dragonPropertyMap;
-
-    const sizing = { width: size, height: size };
-
-
-    return (
-        <div className='dragon-avatar-image-wrapper'>
-            <div className='dragon-avatar-image-background' style={{ backgroundColor, ...sizing }}></div>
-            <img src={pattern} className='dragon-avatar-image-pattern' style={{ ...sizing }} alt="pattern" />
-            <img src={build} className='dragon-avatar-image' style={{ ...sizing }} alt="build"/>
-        </div>
-    );
-  }
 
   render() {
     const { generationId, dragonId, traits, nickname } = this.props.dragon;
@@ -44,17 +11,34 @@ class DragonAvatar extends Component {
 
     return (
         <div>
-            {this.props.isFetch && (<h2>Congratulations, you have collected a new dragon</h2>)}
-            <h3>Generation: {generationId}.</h3>
-            {this.props.isFetch && (<h3>Name: {nickname}</h3>)}
-            <h3>Traits: 
-                { traits.map(trait => trait.traitValue).join(', ') }
-            </h3>
-            { this.DragonImage }
+            <section className="Latest_War padding_top" id= {'sectionDragonView'}>
+              <h2> You have collected a dragon!</h2>
+
+              <div className="container">
+                  <div className="row justify-content-center align-items-center">
+                      <div className="col-lg-6">
+                          <div className="Latest_War_text Latest_War_bg_1">
+                              <div className="row justify-content-center align-items-center h-100">
+                                  <div className="col-lg-6">
+                                      <div className="single_war_text text-center">
+                                          <img src="img/logo.png" style={{width:"65px", height:"65px"}} alt=""/>
+                                          <h2>Name: {nickname}</h2>
+                                          <h3>Generation: {generationId}</h3>
+                                          <h3>Traits: {traits.map(trait => trait.traitValue).join(', ') }</h3>
+                                          <DragonImage dragon={this.props.dragon}/>
+                                      </div>
+                                  </div>
+                              </div>
+                              <Link to='/account-dragons' className="btn_2">My Collection</Link>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </section>
             
         </div>
     )
   }
 }
 
-export default DragonAvatar;
+export default (DragonAvatar);

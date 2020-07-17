@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Button } from 'react-bootstrap';
-import DragonAvatar from './DragonAvatar';
 import MatingOptions from './MatingOptions';
 import { BACKEND } from '../config';
 import history from '../history';
+import DragonImage from './DragonImage';
+import { Button} from 'react-bootstrap';
 
 class PublicDragonRow extends Component {
     state = { displayMatingOptions: false };
@@ -35,22 +35,50 @@ class PublicDragonRow extends Component {
     }
 
     render() {
+        const {nickname, saleValue, breedValue, generationId, traits} = this.props.dragon;
         return (
             <div>
-                <h3>{this.props.dragon.nickname}</h3>
-                <DragonAvatar dragon={this.props.dragon} />
-                <div>
-                    <h3>Sale Value: {this.props.dragon.saleValue} | Breed Value: {this.props.dragon.breedValue}</h3>
-                </div>
-                <div className="market-value">
-                    <Button onClick={this.buy} className='butt'>Buy</Button>{' '}
-                    <Button onClick={this.toggleDisplayMatingOptions} className='butt'>Breed</Button>
-                    {
-                        this.state.displayMatingOptions ?
-                            <MatingOptions patronDragonId={this.props.dragon.dragonId} /> :
-                            <div></div>
-                    }
-                </div>
+
+                <section className="Latest_War padding_top">
+                    <div className="container">
+                        <div className="row justify-content-center align-items-center">
+                            <div className="col-lg-8">
+                                <div className="Latest_War_bg_1">
+                                    <div className="row justify-content-center align-items-center h-100">
+                                        <div className="col-lg-8">
+                                            <div className="single_war_text text-center">
+                                                <img src="img/logo.png" style={{width:"65px", height:"65px"}} alt=""/>
+                                                <h2>Name: {nickname}</h2>
+                                                
+                                                <h3>Generation: {!generationId ? "Bred" : generationId} </h3>
+                                                <h3>Traits: { traits.map(trait => trait.traitValue).join(', ') }</h3>
+                                                <h3>Price: {saleValue}
+                                                    
+                                                </h3>
+                                                <h3>Breed: {breedValue}
+                                                    
+                                                </h3>
+            
+                                                <DragonImage dragon={this.props.dragon}/>
+                                                <br/>
+
+                                                <Button onClick={this.buy} className="btn_1 options">Buy</Button>{' '}
+                                                <Button onClick={this.toggleDisplayMatingOptions} className="btn_1 options">Breed</Button>
+                                                <br/>
+                                                {
+                                                    this.state.displayMatingOptions ?
+                                                        <MatingOptions patronDragonId={this.props.dragon.dragonId} /> :
+                                                        <div></div>
+                                                }
+                                            </div>
+                                        </div>
+                      
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
             </div>
         )

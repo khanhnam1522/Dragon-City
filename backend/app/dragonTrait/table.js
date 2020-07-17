@@ -3,6 +3,7 @@ const TraitTable = require('../trait/table');
 
 class DragonTraitTable{
     static storeDragonTrait({dragonId, traitType, traitValue}){
+
         return new Promise((resolve, reject) => {
             TraitTable.getTraitId({traitType, traitValue})
                 .then(({traitId}) => {
