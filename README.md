@@ -12,13 +12,3 @@
   
 3.Demo:
   - The application is deployed on Heroku: https://dragoncity-nt.herokuapp.com/
-  - User Sign Up:
-    ![](./imgs/login.gif)
-  - Collect dragons from generation, but users can only collect 1 dragon / generation
-    ![](./imgs/collect.gif)
-  - Edit a dragons stat and place it in the dragon market
-    ![](./imgs/edit.gif)
-  - Buy dragons at dragon market
-  - ![](./imgs/buy.gif)
-  - Make baby dragon from a dragon at dragon market
-    ![](./imgs/breed.gif)
