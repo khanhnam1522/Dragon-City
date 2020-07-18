@@ -24,6 +24,5 @@ yarn-error.log*
 
 /public/css
 /public/fonts
-/public/sass
 /public/js
 /public/webfonts
