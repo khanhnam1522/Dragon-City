@@ -2,8 +2,16 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {logout} from '../store/actions/account';
 import {connect} from 'react-redux';
+import history from '../history';
 
 class Navbar extends Component{
+    logout = () => {
+        this.props.logout();
+        if(this.props.account.status !== 'error'){
+            history.push('/');
+        }
+    }
+
     render(){
         return (
             <div>
@@ -30,9 +38,12 @@ class Navbar extends Component{
                                                 <li className="nav-item">
                                                     <Link to='/public-dragons' className="nav-link">Dragon Market</Link>
                                                 </li>
+                                                <li className="nav-item">
+                                                    <a onClick={this.logout} href="avascript:void(0);" className="nav-link">Log Out</a>
+                                                </li>
                                             </ul>
                                         </div>
-                                        <a className="btn_1 d-none d-sm-block" onClick={this.props.logout} href="avascript:void(0);">Log Out</a>
+                                        
                                     </nav>
                                 </div>
                             </div>
@@ -44,4 +55,4 @@ class Navbar extends Component{
 }
 
 
-export default connect(null,{logout})(Navbar);
+export default connect(({account}) => ({account}),{logout})(Navbar);
